@@ -1,12 +1,12 @@
 import React from "react"
-
+import React from "react"
 import Container from "../components/container"
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <Container>
-        <div>Home page</div>
+        <div className="about-text">This is the about page.</div>
       </Container>
     </>
   )

@@ -1,12 +1,11 @@
 import React from "react"
-
 import Container from "../components/container"
 
-export default function Home() {
+export default function Donate() {
   return (
     <>
       <Container>
-        <div>Home page</div>
+        <div>Donate!</div>
       </Container>
     </>
   )
