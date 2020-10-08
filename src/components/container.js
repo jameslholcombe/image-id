@@ -12,13 +12,14 @@ const NavBar = props => (
 export default function Container({ children }) {
   return (
     <>
-      <header style={{ marginBottom: `1.5rem` }}>
-        <Link to="/" style={{ textShadow: `none`, backgroundImage: `none` }}>
-          <h3 style={{ display: `inline` }}>Image ID</h3>
+      <header className="navbar-wrapper">
+        <Link to="/">
+          <h3 className="logo-name">Image ID</h3>
         </Link>
-        <div style={{ listStyle: `none`, float: `right` }}>
+        <div className="navbar-links-wrapper">
           <NavBar to="/">Home</NavBar>
           <NavBar to="/about/">About</NavBar>
+          <NavBar to="/donate/">Donate</NavBar>
         </div>
       </header>
       <div className={containerStyles.container}>
