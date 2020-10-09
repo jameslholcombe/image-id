@@ -11,9 +11,18 @@ require("@tensorflow/tfjs-backend-webgl")
 
 export default function Home() {
 
+  // These are the two AI model instances
+  const mobilenet = require('@tensorflow-models/mobilenet')
+  const cocoSsd = require('@tensorflow-models/coco-ssd')
+
+  // State variable that contains the uploaded image
   const [selectedFile, setSelectedFile] = useState()
+
+  // State variable that contains the preview URL
   const [preview, setPreview] = useState()
 
+  // Callback for uploading an image file
+  // Need to add error handling for wrong file type
   const onSelectFile = e => {
     if (!e.target.files || e.target.files.length === 0) {
       setSelectedFile(undefined)
@@ -22,21 +31,20 @@ export default function Home() {
     setSelectedFile(e.target.files[0])
   }
 
+  // Sets image path in state for src attribute
   useEffect(() => {
     if (!selectedFile) {
       setPreview(undefined)
       return
     }
-
     const objectUrl = URL.createObjectURL(selectedFile)
     setPreview(objectUrl)
 
+    // Cleans up on unmount
     return () => URL.revokeObjectURL(objectUrl)
   }, [selectedFile])
 
-  const mobilenet = require('@tensorflow-models/mobilenet')
-  const cocoSsd = require('@tensorflow-models/coco-ssd')
-
+  // Run Mobilenet model
   const idImage = async () => {
     const model = await mobilenet.load()
     const img = document.getElementById('test')
@@ -44,6 +52,7 @@ export default function Home() {
     console.log(predictions)
   }
 
+  // Run CocoSsd model
   const idObjects = async () => {
     const model = await cocoSsd.load()
     const img = document.getElementById('test')
@@ -56,7 +65,7 @@ export default function Home() {
       <Container>
         <div>Home page</div>
         <div>
-          <img src={preview} id="test" alt="ID this" />
+          {preview && <img src={preview} id="test" alt="ID this" />}
         </div>
         <div>
           <UploadButton onSelectFile={onSelectFile} />
