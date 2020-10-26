@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 
-import Container from "../components/container"
+import ContentContainer from "../components/ContentContainer"
 import UploadButton from "../components/UploadButton"
 
 import Button from "@material-ui/core/Button"
@@ -62,7 +62,7 @@ export default function Home() {
 
   return (
     <>
-      <Container>
+      <ContentContainer>
         <div>Home page</div>
         <div>
           {preview && <img src={preview} id="test" alt="ID this" />}
@@ -72,7 +72,7 @@ export default function Home() {
         </div>
         <Button onClick={idImage} variant="contained" color="primary">ID Image</Button>
         <Button onClick={idObjects} variant="contained" color="primary">ID Objects</Button>
-      </Container>
+      </ContentContainer>
     </>
   )
 }

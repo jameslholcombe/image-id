@@ -1,12 +1,12 @@
 import React from "react"
-import Container from "../components/container"
+import ContentContainer from "../components/ContentContainer"
 
 export default function About() {
   return (
     <>
-      <Container>
+      <ContentContainer>
         <div className="about-text">This is the about page.</div>
-      </Container>
+      </ContentContainer>
     </>
   )
 }
