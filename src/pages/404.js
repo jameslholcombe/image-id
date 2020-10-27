@@ -1,5 +1,5 @@
-import React from "react"
-import ContentContainer from "../components/ContentContainer"
+import React from 'react';
+import ContentContainer from '../components/ContentContainer';
 
 export default function PageNotFound() {
   return (
@@ -8,5 +8,5 @@ export default function PageNotFound() {
         <div>Page not found</div>
       </ContentContainer>
     </>
-  )
+  );
 }
