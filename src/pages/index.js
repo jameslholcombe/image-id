@@ -63,12 +63,18 @@ export default function Home() {
   return (
     <>
       <ContentContainer>
-        <Grid container spacing={3}>
-          <Grid item xs={6}>
+        <Grid container spacing={6}>
+          <Grid item sm={6} xs={12}>
             <h1>Image ID</h1>
             <h3>Use Google's AI Powered Tensorflow to identify images</h3>
+            <h4>How it works:</h4>
+            <ul>
+              <li>Upload an image</li>
+              <li>Clicking ID Image will use Tensorflow AI image recognition software for a specific match</li>
+              <li>ID Objects will attempt to recognize multiple objects in the image.</li>
+            </ul>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item sm={6} xs={12}>
             <div>
               {preview && <img className="image-preview" src={preview} id="test" alt="ID this" />}
             </div>

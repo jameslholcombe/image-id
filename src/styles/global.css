@@ -4,6 +4,7 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
 }
 
 .navbar-wrapper {
@@ -22,7 +23,7 @@ body {
     display: inline-block;
 }
 
-a:-webkit-any-link {
+.navbar-links a {
     color: white;
     text-decoration: none;
 }
@@ -36,14 +37,28 @@ a:-webkit-any-link {
 .footer {
     background-color: lightslategray;
     bottom: 0;
+    height: 1rem;
     left: 0;
     padding: 0.5rem 0 0.5rem 0;
-    position: fixed;
+    position: absolute;
     text-align: center;
     width: 100%;
+}
+
+.footer a {
+    color: black;
 }
 
 .image-preview {
     max-width: 250px;
     max-height: 250px;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    padding-bottom: 6rem;
 }
