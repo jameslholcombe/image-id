@@ -65,11 +65,12 @@ export default function Home() {
       <ContentContainer>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <div>Home page</div>
+            <h1>Image ID</h1>
+            <h3>Use Google's AI Powered Tensorflow to identify images</h3>
           </Grid>
           <Grid item xs={6}>
             <div>
-              {preview && <img src={preview} id="test" alt="ID this" />}
+              {preview && <img className="image-preview" src={preview} id="test" alt="ID this" />}
             </div>
             <div>
               <UploadButton onSelectFile={onSelectFile} />

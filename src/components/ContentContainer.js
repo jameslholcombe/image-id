@@ -23,6 +23,7 @@ export default function ContentContainer({ children }) {
         </header>
       </Container>
       <Container maxWidth="md">{children}</Container>
+      <div className="footer">this is the footer</div>
     </>
   );
 }

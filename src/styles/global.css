@@ -32,3 +32,18 @@ a:-webkit-any-link {
     display: inline;
     padding-left: 1rem;
 }
+
+.footer {
+    background-color: lightslategray;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem 0 0.5rem 0;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+}
+
+.image-preview {
+    max-width: 250px;
+    max-height: 250px;
+}
