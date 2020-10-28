@@ -1,6 +1,8 @@
-describe("test", () => {
+import parseTensorflowResponse from '../helpers/parseTensorflowResponse';
+
+describe("test tensorflow response parsing", () => {
   it("equals four", () => {
-    const four = 2 + 2;
+    const four = parseTensorflowResponse();
     expect(four).toBe(4)
   })
 })
