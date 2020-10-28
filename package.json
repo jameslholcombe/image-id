@@ -11,7 +11,7 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -23,9 +23,14 @@
     "@tensorflow/tfjs-backend-webgl": "^2.5.0",
     "@tensorflow/tfjs-converter": "^2.5.0",
     "@tensorflow/tfjs-core": "^2.6.0",
+    "babel-jest": "^26.6.1",
+    "babel-preset-gatsby": "^0.5.14",
     "gatsby": "^2.24.61",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.1",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^17.0.1"
   },
   "devDependencies": {
     "prettier": "2.1.1"
