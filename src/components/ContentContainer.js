@@ -26,7 +26,9 @@ export default function ContentContainer({ children }) {
         <div className="content-wrap">
           <Container maxWidth="md">{children}</Container>
         </div>
-        <div className="footer">Created by <a href="https://jameslholcombe.com">James Holcombe</a></div>
+        <div className="footer">
+          Created by <a href="https://jameslholcombe.com">James Holcombe</a>
+        </div>
       </div>
     </>
   );

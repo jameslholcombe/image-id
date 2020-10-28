@@ -70,13 +70,26 @@ export default function Home() {
             <h4>How it works:</h4>
             <ul>
               <li>Upload an image</li>
-              <li>Clicking ID Image will use Tensorflow AI image recognition software for a specific match</li>
-              <li>ID Objects will attempt to recognize multiple objects in the image.</li>
+              <li>
+                Clicking ID Image will use Tensorflow AI image recognition
+                software for a specific match
+              </li>
+              <li>
+                ID Objects will attempt to recognize multiple objects in the
+                image.
+              </li>
             </ul>
           </Grid>
           <Grid item sm={6} xs={12}>
             <div>
-              {preview && <img className="image-preview" src={preview} id="test" alt="ID this" />}
+              {preview && (
+                <img
+                  className="image-preview"
+                  src={preview}
+                  id="test"
+                  alt="ID this"
+                />
+              )}
             </div>
             <div>
               <UploadButton onSelectFile={onSelectFile} />
