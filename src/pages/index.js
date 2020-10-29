@@ -44,21 +44,32 @@ export default function Home() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedFile]);
 
-  // Run Mobilenet model
-  const idImage = async () => {
-    const model = await mobilenet.load();
+  const both = async () => {
+    const mobileNetModel = await mobilenet.load();
+    const cocoSsdModel = await cocoSsd.load();
+
+    // Need error handling for empty image
     const img = document.getElementById('test');
-    const predictions = await model.classify(img);
-    console.log(predictions);
+    const mobileNetPredictions = await mobileNetModel.classify(img);
+    const cocoSsdPredictions = await cocoSsdModel.detect(img);
+    console.log(mobileNetPredictions, cocoSsdPredictions);
   };
 
-  // Run CocoSsd model
-  const idObjects = async () => {
-    const model = await cocoSsd.load();
-    const img = document.getElementById('test');
-    const predictions = await model.detect(img);
-    console.log(predictions);
-  };
+  // // Run Mobilenet model
+  // const idImage = async () => {
+  //   const model = await mobilenet.load();
+  //   const img = document.getElementById('test');
+  //   const predictions = await model.classify(img);
+  //   console.log(predictions);
+  // };
+
+  // // Run CocoSsd model
+  // const idObjects = async () => {
+  //   const model = await cocoSsd.load();
+  //   const img = document.getElementById('test');
+  //   const predictions = await model.detect(img);
+  //   console.log(predictions);
+  // };
 
   return (
     <>
@@ -66,12 +77,12 @@ export default function Home() {
         <Grid container spacing={6}>
           <Grid item sm={6} xs={12}>
             <h1>Image ID</h1>
-            <h3>Use Google's AI Powered Tensorflow to identify images</h3>
+            <h3>Use Google's AI Powered TensorFlow to identify images</h3>
             <h4>How it works:</h4>
             <ul>
               <li>Upload an image</li>
               <li>
-                Clicking ID Image will use Tensorflow AI image recognition
+                Clicking ID Image will use TensorFlow AI image recognition
                 software for a specific match
               </li>
               <li>
@@ -94,12 +105,12 @@ export default function Home() {
             <div>
               <UploadButton onSelectFile={onSelectFile} />
             </div>
-            <Button onClick={idImage} variant="contained" color="primary">
+            <Button onClick={both} variant="contained" color="primary">
               ID Image
             </Button>
-            <Button onClick={idObjects} variant="contained" color="primary">
+            {/* <Button onClick={idObjects} variant="contained" color="primary">
               ID Objects
-            </Button>
+            </Button> */}
           </Grid>
         </Grid>
       </ContentContainer>
