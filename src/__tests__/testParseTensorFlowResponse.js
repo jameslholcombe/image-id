@@ -1,7 +1,7 @@
 import parseTensorFlowResponse from '../helpers/parseTensorFlowResponse';
 
 describe('test tensorflow response parsing', () => {
-  it('both have response', () => {
+  it('both have response no same items', () => {
     const mobileNetPredictions = [
       {
         className: 'espresso',
@@ -35,5 +35,15 @@ describe('test tensorflow response parsing', () => {
       cocoSsdPredictions
     );
 
+    expect(parsedResult).toEqual([
+      {
+        'class': 'cup',
+        'score': 0.9749
+      },
+      {
+        'class': 'espresso',
+        'score': 0.7745
+      }
+    ]);
   });
 });
