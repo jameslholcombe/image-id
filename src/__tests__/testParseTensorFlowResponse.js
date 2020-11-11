@@ -135,7 +135,7 @@ describe('test tensorflow response parsing', () => {
     expect(parsedResult).toEqual([
       {
         count: 3,
-        class: 'person',
+        class: 'people',
         score: 0.80185600121816,
       }
     ]);

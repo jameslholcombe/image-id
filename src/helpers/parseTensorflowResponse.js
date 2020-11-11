@@ -1,3 +1,5 @@
+import pluralize from 'pluralize';
+
 const parseTensorFlowResponse = (
   mobileNetPredictions,
   cocoSsdPredictions
@@ -46,10 +48,12 @@ const parseTensorFlowResponse = (
 
   // Average prediction.score for aggregated objects
   aggregatedPredictions.map((prediction) => {
-    if (prediction.score > 1) {
-      return prediction.score = prediction.score / prediction.count;
+    if (prediction.count > 1) {
+      prediction.score = prediction.score / prediction.count;
+      prediction.class = pluralize(prediction.class, prediction.count);
+      return prediction;
     } else {
-      return prediction.score;
+      return prediction;
     }
   });
 
