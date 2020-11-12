@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import ContentContainer from '../components/ContentContainer';
-import UploadButton from '../components/UploadButton';
+import ImagePrediction from '../components/ImagePrediction';
+import Info from '../components/Info';
 
-import Button from '@material-ui/core/Button';
+import parseTensorFlowResponse from '../helpers/parseTensorflowResponse';
+
 import Grid from '@material-ui/core/Grid';
 
-// This is pinned at 2.4.0 because of a breaking change in 2.5.0
 require('@tensorflow/tfjs-backend-cpu');
 require('@tensorflow/tfjs-backend-webgl');
 
@@ -21,9 +22,16 @@ export default function Home() {
   // State variable that contains the preview URL
   const [preview, setPreview] = useState();
 
+  // State variable that contains the TensorFlow predictions
+  const [predictions, setPredictions] = useState([]);
+
+  const [noPredictions, setNoPredictions] = useState(false);
+
   // Callback for uploading an image file
   // Need to add error handling for wrong file type
   const onSelectFile = e => {
+    setPredictions([]);
+    setNoPredictions(false);
     if (!e.target.files || e.target.files.length === 0) {
       setSelectedFile(undefined);
       return;
@@ -44,73 +52,33 @@ export default function Home() {
     return () => URL.revokeObjectURL(objectUrl);
   }, [selectedFile]);
 
-  const both = async () => {
+  const getTensorFlowResponse = async () => {
     const mobileNetModel = await mobilenet.load();
     const cocoSsdModel = await cocoSsd.load();
 
     // Need error handling for empty image
-    const img = document.getElementById('test');
+    const img = document.getElementById('uploadedImage');
     const mobileNetPredictions = await mobileNetModel.classify(img);
     const cocoSsdPredictions = await cocoSsdModel.detect(img);
-    console.log(mobileNetPredictions, cocoSsdPredictions);
+    const tensorFlowResponse = parseTensorFlowResponse(mobileNetPredictions, cocoSsdPredictions);
+    tensorFlowResponse.length > 0 ? setPredictions(tensorFlowResponse) : setNoPredictions(true);
   };
-
-  // // Run Mobilenet model
-  // const idImage = async () => {
-  //   const model = await mobilenet.load();
-  //   const img = document.getElementById('test');
-  //   const predictions = await model.classify(img);
-  //   console.log(predictions);
-  // };
-
-  // // Run CocoSsd model
-  // const idObjects = async () => {
-  //   const model = await cocoSsd.load();
-  //   const img = document.getElementById('test');
-  //   const predictions = await model.detect(img);
-  //   console.log(predictions);
-  // };
 
   return (
     <>
       <ContentContainer>
         <Grid container spacing={6}>
           <Grid item sm={6} xs={12}>
-            <h1>Image ID</h1>
-            <h3>Use Google's AI Powered TensorFlow to identify images</h3>
-            <h4>How it works:</h4>
-            <ul>
-              <li>Upload an image</li>
-              <li>
-                Clicking ID Image will use TensorFlow AI image recognition
-                software for a specific match
-              </li>
-              <li>
-                ID Objects will attempt to recognize multiple objects in the
-                image.
-              </li>
-            </ul>
+            <Info />
           </Grid>
           <Grid item sm={6} xs={12}>
-            <div>
-              {preview && (
-                <img
-                  className="image-preview"
-                  src={preview}
-                  id="test"
-                  alt="ID this"
-                />
-              )}
-            </div>
-            <div>
-              <UploadButton onSelectFile={onSelectFile} />
-            </div>
-            <Button onClick={both} variant="contained" color="primary">
-              ID Image
-            </Button>
-            {/* <Button onClick={idObjects} variant="contained" color="primary">
-              ID Objects
-            </Button> */}
+            <ImagePrediction
+              preview={preview}
+              onSelectFile={onSelectFile}
+              getTensorFlowResponse={getTensorFlowResponse}
+              predictions={predictions}
+              noPredictions={noPredictions}
+            />
           </Grid>
         </Grid>
       </ContentContainer>
