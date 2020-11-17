@@ -1,6 +1,10 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 
+import SEO from './Seo';
+
+import '../styles/index.scss';
+
 import { Link } from 'gatsby';
 
 const NavBar = props => (
@@ -12,6 +16,8 @@ const NavBar = props => (
 export default function ContentContainer({ children }) {
   return (
     <>
+      <SEO />
+      {/* <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito"></link> */}
       <div className="page-container">
         <Container maxWidth={false} disableGutters={true}>
           <header className="navbar-wrapper">
