@@ -71,7 +71,15 @@ export default function Home() {
           <Grid item sm={6} xs={12}>
             <Info />
           </Grid>
-          <Grid item sm={6} xs={12}>
+          <Grid
+            container
+            sm={6}
+            xs={12}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            className="image-prediction-grid"
+          >
             <ImagePrediction
               preview={preview}
               onSelectFile={onSelectFile}

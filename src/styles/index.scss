@@ -10,7 +10,7 @@ html {
     position: relative;
     min-height: 100vh;
     .navbar-wrapper {
-        background-color: black;
+        background-color: rgb(37, 43, 121);
         margin-bottom: 2rem;
         padding: 1rem 0 1rem 0;
         a {
@@ -42,8 +42,9 @@ html {
         }
     }
     .footer {
-        background-color: lightslategray;
+        background-color: rgb(185, 192, 224);
         bottom: 0;
+        color: rgb(67, 70, 71);
         height: 1rem;
         left: 0;
         padding: 0.5rem 0 0.5rem 0;
@@ -51,7 +52,26 @@ html {
         text-align: center;
         width: 100%;
         a {
-            color: black;
+            color: rgb(67, 70, 71);
+        }
+    }
+    .image-prediction-grid {
+        height: 30rem;
+        .image-prediction {
+            .upload-container {
+                border: 1px dashed lightslategray;
+                border-radius: 15px;
+                margin: 2rem 0 2rem 0;
+                padding: 3rem;
+                .upload-button {
+                    margin: 0 auto 0 auto;
+                    text-align: center;
+                }
+            }
+            .id-button-container {
+                margin: 0 auto 0 auto;
+                text-align: center;
+            }
         }
     }
 }

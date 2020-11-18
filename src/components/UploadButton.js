@@ -19,7 +19,7 @@ export default function UploadButton({ onSelectFile }) {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
+    <div className={`upload-button ${classes.root}`}>
       <input
         accept="image/*"
         className={classes.input}
@@ -28,7 +28,7 @@ export default function UploadButton({ onSelectFile }) {
         onChange={onSelectFile}
       />
       <label htmlFor="contained-button-file">
-        <Button variant="contained" color="primary" component="span">
+        <Button color="primary" component="span">
           Upload
         </Button>
       </label>
