@@ -17,7 +17,6 @@ export default function ContentContainer({ children }) {
   return (
     <>
       <SEO />
-      {/* <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito"></link> */}
       <div className="page-container">
         <Container maxWidth={false} disableGutters={true}>
           <header className="navbar-wrapper">

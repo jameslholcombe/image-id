@@ -15,23 +15,29 @@ const ImagePrediction = ({
   return (
     <>
       <div className="image-prediction">
-        <div>
-          {preview && (
-            <img
-              className="image-preview"
-              src={preview}
-              id="uploadedImage"
-              alt="ID this"
-            />
-          )}
-        </div>
-        <div className="upload-container">
-          <UploadButton onSelectFile={onSelectFile} />
-        </div>
+          {preview
+          ? (
+              <img
+                className="image-preview"
+                src={preview}
+                id="uploadedImage"
+                alt="ID this"
+              />
+            )
+          : (
+              <div className="upload-container">
+                <UploadButton onSelectFile={onSelectFile} predictions={predictions} noPredictions={noPredictions} />
+              </div>
+            )
+          }
         <div className="id-button-container">
-          <Button onClick={getTensorFlowResponse} variant="outlined" color="primary" size="large">
-            ID Image
-          </Button>
+          {(predictions.length > 0 || noPredictions === true)
+          ? <UploadButton onSelectFile={onSelectFile} predictions={predictions} noPredictions={noPredictions} />
+          : (
+            <Button onClick={getTensorFlowResponse} variant="outlined" color="primary" size="large">
+              Identify
+            </Button>
+          )}
         </div>
         {predictions.length > 0 && <Predictions predictions={predictions} />}
         {noPredictions === true && <div>Cannot find a match</div>}

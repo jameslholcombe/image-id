@@ -6,7 +6,7 @@ const Predictions = ({ predictions }) => {
   ));
 
   return (
-  <div>
+  <div className="prediction">
     {predictionComponents}
   </div>
   );

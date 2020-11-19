@@ -2,7 +2,7 @@ import React from 'react';
 
 const Info = () => {
   return (
-    <>
+    <div className="info">
       <h1>Image ID</h1>
       <h3>Use Google's AI Powered TensorFlow to identify images</h3>
       <h4>How it works:</h4>
@@ -17,7 +17,7 @@ const Info = () => {
           image.
         </li>
       </ul>
-    </>
+    </div>
   );
 };
 

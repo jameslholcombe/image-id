@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function UploadButton({ onSelectFile }) {
+export default function UploadButton({ onSelectFile, predictions, noPredictions }) {
   const classes = useStyles();
 
   return (
@@ -29,7 +29,7 @@ export default function UploadButton({ onSelectFile }) {
       />
       <label htmlFor="contained-button-file">
         <Button color="primary" component="span">
-          Upload
+          {(predictions.length > 0 || noPredictions === true) ? <span>Upload Another</span> : <span>Upload</span>}
         </Button>
       </label>
       <input

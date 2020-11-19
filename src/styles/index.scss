@@ -9,6 +9,18 @@ html {
 .page-container {
     position: relative;
     min-height: 100vh;
+    .info {
+        margin-top: 5rem;
+        @media (max-width: 600px) {
+            margin-top: 0;
+        }
+        h1 {
+            font-weight: normal;
+        }
+        h3 {
+            font-weight: normal;
+        }
+    }
     .navbar-wrapper {
         background-color: rgb(37, 43, 121);
         margin-bottom: 2rem;
@@ -19,6 +31,7 @@ html {
         .logo-name {
             color:white;
             display: inline;
+            font-weight: normal;
             padding-left: 1rem;
         }
         .navbar-links-wrapper {
@@ -58,6 +71,8 @@ html {
     .image-prediction-grid {
         height: 30rem;
         .image-prediction {
+            margin: 0 auto 0 auto;
+            text-align: center;
             .upload-container {
                 border: 1px dashed lightslategray;
                 border-radius: 15px;

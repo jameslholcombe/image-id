@@ -67,8 +67,15 @@ export default function Home() {
   return (
     <>
       <ContentContainer>
-        <Grid container spacing={6}>
-          <Grid item sm={6} xs={12}>
+        <Grid
+          container
+          spacing={6}
+        >
+          <Grid
+            item
+            sm={6}
+            xs={12}
+          >
             <Info />
           </Grid>
           <Grid
