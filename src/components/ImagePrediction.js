@@ -12,10 +12,11 @@ const ImagePrediction = ({
   predictions,
   noPredictions,
 }) => {
+  console.log(preview);
   return (
     <>
       <div className="image-prediction">
-          {preview
+          {preview !== undefined
           ? (
               <img
                 className="image-preview"
@@ -33,7 +34,7 @@ const ImagePrediction = ({
         <div className="id-button-container">
           {(predictions.length > 0 || noPredictions === true)
           ? <UploadButton onSelectFile={onSelectFile} predictions={predictions} noPredictions={noPredictions} />
-          : (
+          : (preview !== undefined) && (
             <Button onClick={getTensorFlowResponse} variant="outlined" color="primary" size="large">
               Identify
             </Button>

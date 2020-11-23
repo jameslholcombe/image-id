@@ -79,12 +79,9 @@ export default function Home() {
             <Info />
           </Grid>
           <Grid
-            container
+            item
             sm={6}
             xs={12}
-            direction="column"
-            alignItems="center"
-            justify="center"
             className="image-prediction-grid"
           >
             <ImagePrediction

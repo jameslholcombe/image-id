@@ -71,12 +71,22 @@ html {
     .image-prediction-grid {
         height: 30rem;
         .image-prediction {
-            margin: 0 auto 0 auto;
+            margin: 6rem auto 0 auto;
             text-align: center;
+            @media screen and (max-width:600px) {
+                margin-top: 0;
+            }
+            .image-preview {
+                margin-bottom: 1rem;
+            }
             .upload-container {
+                @media screen and (max-width:600px) {
+                    margin-top: 0;
+                }
                 border: 1px dashed lightslategray;
                 border-radius: 15px;
-                margin: 2rem 0 2rem 0;
+                max-width: 12rem;
+                margin: 5rem auto 2rem auto;
                 padding: 3rem;
                 .upload-button {
                     margin: 0 auto 0 auto;
