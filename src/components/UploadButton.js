@@ -29,7 +29,7 @@ export default function UploadButton({ onSelectFile, predictions, noPredictions 
       />
       <label htmlFor="contained-button-file">
         <Button color="primary" component="span">
-          {(predictions.length > 0 || noPredictions === true) ? <span>Upload Another</span> : <span>Upload</span>}
+          {(predictions.length > 0 || noPredictions === true) ? <span>Upload New Image</span> : <span>Upload</span>}
         </Button>
       </label>
       <input
