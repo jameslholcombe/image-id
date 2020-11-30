@@ -1,7 +1,7 @@
 html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     body {
-        background-color: rgb(248, 248, 250);
+        background-color: rgb(220, 224, 230);
         margin: 0;
         padding: 0;
     }
@@ -20,6 +20,13 @@ html {
         }
         h3 {
             font-weight: normal;
+        }
+    }
+    .spinner {
+        margin: 6rem auto 0 auto;
+        text-align: center;
+        .loading-message {
+            padding-top: 2rem;
         }
     }
     .navbar-wrapper {
@@ -70,7 +77,7 @@ html {
         }
     }
     .image-prediction-grid {
-        height: 30rem;
+        min-height: 15rem;
         .image-prediction {
             margin: 6rem auto 0 auto;
             text-align: center;
@@ -78,6 +85,8 @@ html {
                 margin-top: 0;
             }
             .image-preview {
+                border: 1px solid black;
+                box-shadow: 1px 2px black;
                 margin-bottom: 1rem;
             }
             .upload-container {

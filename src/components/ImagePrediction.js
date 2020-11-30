@@ -12,7 +12,6 @@ const ImagePrediction = ({
   predictions,
   noPredictions,
 }) => {
-  console.log(preview);
   return (
     <>
       <div className="image-prediction">

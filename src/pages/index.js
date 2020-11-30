@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer';
 import ImagePrediction from '../components/ImagePrediction';
 import Info from '../components/Info';
+import Spinner from '../components/Spinner';
 
 import parseTensorFlowResponse from '../helpers/parseTensorflowResponse';
 
@@ -26,6 +27,8 @@ export default function Home() {
   const [predictions, setPredictions] = useState([]);
 
   const [noPredictions, setNoPredictions] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   // Callback for uploading an image file
   // Need to add error handling for wrong file type
@@ -53,46 +56,58 @@ export default function Home() {
   }, [selectedFile]);
 
   const getTensorFlowResponse = async () => {
+    const img = document.getElementById('uploadedImage');
+    setLoading(true);
     const mobileNetModel = await mobilenet.load();
     const cocoSsdModel = await cocoSsd.load();
 
-    // Need error handling for empty image
-    const img = document.getElementById('uploadedImage');
     const mobileNetPredictions = await mobileNetModel.classify(img);
     const cocoSsdPredictions = await cocoSsdModel.detect(img);
     const tensorFlowResponse = parseTensorFlowResponse(mobileNetPredictions, cocoSsdPredictions);
     tensorFlowResponse.length > 0 ? setPredictions(tensorFlowResponse) : setNoPredictions(true);
+    setLoading(false);
   };
 
   return (
     <>
       <ContentContainer>
-        <Grid
-          container
-          spacing={6}
-        >
-          <Grid
-            item
-            sm={6}
-            xs={12}
+        {loading
+        ? <Grid
+            container
+            spacing={10}
           >
-            <Info />
+            <div className="spinner">
+              <Spinner loading={loading} />
+              <div className="loading-message">Analyzing...</div>
+            </div>
           </Grid>
-          <Grid
-            item
-            sm={6}
-            xs={12}
-            className="image-prediction-grid"
+        : <Grid
+            container
+            spacing={6}
           >
-            <ImagePrediction
-              preview={preview}
-              onSelectFile={onSelectFile}
-              getTensorFlowResponse={getTensorFlowResponse}
-              predictions={predictions}
-              noPredictions={noPredictions}
-            />
+            <Grid
+              item
+              sm={6}
+              xs={12}
+            >
+              <Info />
+            </Grid>
+            <Grid
+              item
+              sm={6}
+              xs={12}
+              className="image-prediction-grid"
+            >
+              <ImagePrediction
+                preview={preview}
+                onSelectFile={onSelectFile}
+                getTensorFlowResponse={getTensorFlowResponse}
+                predictions={predictions}
+                noPredictions={noPredictions}
+              />
+            </Grid>
           </Grid>
-        </Grid>
+        }
       </ContentContainer>
     </>
   );
