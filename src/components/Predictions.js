@@ -6,9 +6,12 @@ const Predictions = ({ predictions }) => {
   ));
 
   return (
-  <div className="prediction">
-    {predictionComponents}
-  </div>
+    <>
+      <div className="prediction-header"><strong>Predictions:</strong></div>
+      <div className="prediction">
+        {predictionComponents}
+      </div>
+    </>
   );
 };
 

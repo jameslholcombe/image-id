@@ -31,7 +31,6 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   // Callback for uploading an image file
-  // Need to add error handling for wrong file type
   const onSelectFile = e => {
     setPredictions([]);
     setNoPredictions(false);

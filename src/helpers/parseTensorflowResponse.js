@@ -60,6 +60,12 @@ const parseTensorFlowResponse = (
   // Sort prediction.score decreasing
   aggregatedPredictions.sort((a, b) => parseFloat(b.score) - parseFloat(a.score));
 
+  console.log(
+    'You found the Easter Egg! Here are the unfiltered responses from Tensorflow',
+    mobileNetPredictions,
+    cocoSsdPredictions
+  );
+
   return aggregatedPredictions;
 };
 

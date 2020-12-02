@@ -4,19 +4,17 @@ const Info = () => {
   return (
     <div className="info">
       <h1>Image ID</h1>
-      <h3>Use Google's AI Powered TensorFlow to identify images</h3>
-      <h4>How it works:</h4>
-      <ul>
-        <li>Upload an image</li>
+      <h3>Use Artificial Intelligence to identify images</h3>
+      <div><strong>How it works:</strong></div>
+      <ol>
+        <li>Upload any image by clicking the button to the right.</li>
         <li>
-          Clicking ID Image will use TensorFlow AI image recognition
-          software for a specific match
+          Google's AI & Machine Learning engine, Tensorflow, will attempt to identify objects in the image.
         </li>
         <li>
-          ID Objects will attempt to recognize multiple objects in the
-          image.
+          Predictions are displayed below!
         </li>
-      </ul>
+      </ol>
     </div>
   );
 };
