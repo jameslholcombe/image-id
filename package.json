@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "image-id",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "An application of AI image recognition software",
   "version": "0.1.0",
   "license": "0BSD",
   "scripts": {
@@ -52,9 +52,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+    "url": "https://github.com/jameslholcombe/image-id"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jameslholcombe/image-id/issues"
   }
 }
