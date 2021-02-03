@@ -2,7 +2,7 @@
   Image ID
 </h1>
 
-Get image recognition software and Google's Tensorflow set up on your own computer!
+Get image recognition software and Google's Tensorflow set up on your own computer! The live website can be found [here](https://image-id.netlify.app/).
 
 ## 🚀 Quick start
 
